@@ -4,11 +4,14 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.amir.dogs.R
 import com.amir.dogs.model.DogBreed
+import com.amir.dogs.util.getProgressDrawable
+import com.amir.dogs.util.loadImage
 import kotlinx.android.synthetic.main.item_dog.view.*
 
 class DogListAdapter(private val dogList: ArrayList<DogBreed>) :
@@ -30,6 +33,7 @@ class DogListAdapter(private val dogList: ArrayList<DogBreed>) :
             val action = ListFragmentDirections.actionDetailFragment()
             Navigation.findNavController(it).navigate(action)
         }
+        holder.image.loadImage(dogList[position].imageUrl!!, getProgressDrawable(holder.image.context))
 
     }
 
@@ -48,4 +52,5 @@ class DogListAdapter(private val dogList: ArrayList<DogBreed>) :
 class DogViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
     val name = view.findViewById<TextView>(R.id.tv_name)!!
     val lifespan = view.findViewById<TextView>(R.id.tv_lifespan)!!
+    val image = view.findViewById<ImageView>(R.id.iv)!!
 }
