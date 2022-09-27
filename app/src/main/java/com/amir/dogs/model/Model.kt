@@ -7,30 +7,30 @@ import com.google.gson.annotations.SerializedName
 
 @Entity
 data class DogBreed(
-    @ColumnInfo("breed_id")
+    @ColumnInfo(name = "breed_id")
     @SerializedName("id")
     val breedID: String?,
 
-    @ColumnInfo("dog_name")
+    @ColumnInfo(name = "dog_name")
     @SerializedName("name")
     val dogBreed: String?,
 
-    @ColumnInfo("life_span")
+    @ColumnInfo(name = "life_span")
     @SerializedName("life_span")
     val lifeSpan: String?,
 
-    @ColumnInfo("breed_group")
+    @ColumnInfo(name = "breed_group")
     @SerializedName("breed_group")
     val breedGroup: String,
 
-    @ColumnInfo("bred_for")
+    @ColumnInfo(name = "bred_for")
     @SerializedName("bred_for")
     val bredFor: String?,
 
     @SerializedName("temperament")
     val temperament: String?,
 
-    @ColumnInfo("dog_url")
+    @ColumnInfo(name = "dog_url")
     @SerializedName("url")
     val imageUrl: String?
 
